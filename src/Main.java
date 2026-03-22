@@ -7,9 +7,9 @@ public class Main {
     }
 
     // Task 2
-    static int sum(int[] arr, int n){
-        if(n == 0) return 0;
-        return arr[n-1] + sum(arr, n-1);
+    static double average(int[] arr, int n, int total) {
+        if(n == 0) return (double) total / arr.length;
+        return average(arr, n-1, total + arr[n-1]);
     }
 
     // Task 3
@@ -26,6 +26,7 @@ public class Main {
         return n * fact(n - 1);
     }
 
+    // Part 2
     // Task 5
     static int fib(int n){
         if(n == 0) return 0;
@@ -59,13 +60,13 @@ public class Main {
     }
 
     public static void main(String[] args) {
-
         // Task 1
         printDigits(5481);
 
         // Task 2
-        int[] arr = {3,2,4,1};
-        System.out.println(sum(arr, arr.length) / (double)arr.length);
+        int[] numbers = {3,2,4,1};
+        double avg = average(numbers, numbers.length, 0);
+        System.out.println("Average = " + avg);
 
         // Task 3
         System.out.println(isPrime(7, 2) ? "Prime" : "Composite");
